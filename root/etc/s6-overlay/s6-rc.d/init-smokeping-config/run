@@ -70,3 +70,8 @@ lsiown -R abc:abc \
     /usr/share/webapps/smokeping \
     /var/cache/smokeping \
     /var/www/localhost/smokeping
+
+# fix fping on Mikrotik
+# see https://github.com/linuxserver/docker-smokeping/issues/169
+sysctl -w "net.ipv4.ping_group_range=0 2000"
+chmod u+s /usr/sbin/fping
